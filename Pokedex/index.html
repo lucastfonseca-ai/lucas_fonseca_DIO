@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokédex</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ====== HEADER ====== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">Pokédex</span>
+      </div>
+      <nav class="header-nav">
+        <button class="nav-btn active" data-view="pokedex">Pokédex</button>
+        <button class="nav-btn" data-view="favorites">Favoritos <span id="favCount" class="badge">0</span></button>
+        <button class="nav-btn" data-view="compare">Comparar</button>
+      </nav>
+      <div class="header-search">
+        <input type="text" id="searchInput" placeholder="Buscar Pokémon..." autocomplete="off" />
+        <span class="search-icon">🔍</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====== FILTER BAR ====== -->
+  <div class="filter-bar">
+    <div class="filter-inner">
+      <span class="filter-label">Tipo:</span>
+      <div class="type-filters" id="typeFilters">
+        <button class="type-btn active" data-type="all">Todos</button>
+        <button class="type-btn" data-type="fire">🔥 Fogo</button>
+        <button class="type-btn" data-type="water">💧 Água</button>
+        <button class="type-btn" data-type="grass">🌿 Planta</button>
+        <button class="type-btn" data-type="electric">⚡ Elétrico</button>
+        <button class="type-btn" data-type="psychic">🔮 Psíquico</button>
+        <button class="type-btn" data-type="ice">❄️ Gelo</button>
+        <button class="type-btn" data-type="dragon">🐉 Dragão</button>
+        <button class="type-btn" data-type="dark">🌑 Sombrio</button>
+        <button class="type-btn" data-type="fairy">🧚 Fada</button>
+        <button class="type-btn" data-type="fighting">🥊 Lutador</button>
+        <button class="type-btn" data-type="poison">☠️ Veneno</button>
+        <button class="type-btn" data-type="rock">🪨 Pedra</button>
+        <button class="type-btn" data-type="ghost">👻 Fantasma</button>
+        <button class="type-btn" data-type="steel">⚙️ Aço</button>
+        <button class="type-btn" data-type="normal">⭐ Normal</button>
+      </div>
+      <div class="sort-control">
+        <label for="sortSelect">Ordenar:</label>
+        <select id="sortSelect">
+          <option value="id">Número</option>
+          <option value="name">Nome</option>
+          <option value="hp">HP</option>
+          <option value="attack">Ataque</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== MAIN CONTENT ====== -->
+  <main class="main-content">
+
+    <!-- POKÉDEX VIEW -->
+    <section id="view-pokedex" class="view active">
+      <div class="stats-bar">
+        <span id="pokemonCount">Carregando...</span>
+      </div>
+      <ol id="pokemonList" class="pokemon-grid"></ol>
+      <div class="load-more-wrap">
+        <button id="loadMoreButton" class="load-more-btn">
+          <span class="btn-text">Carregar Mais</span>
+          <span class="btn-pokeball">⚪</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- FAVORITES VIEW -->
+    <section id="view-favorites" class="view">
+      <div class="empty-state" id="favEmpty">
+        <div class="empty-icon">💔</div>
+        <h2>Nenhum favorito ainda</h2>
+        <p>Clique no ❤️ de qualquer Pokémon para adicioná-lo aqui!</p>
+      </div>
+      <ol id="favoritesList" class="pokemon-grid"></ol>
+    </section>
+
+    <!-- COMPARE VIEW -->
+    <section id="view-compare" class="view">
+      <div class="compare-container">
+        <div class="compare-slot" id="compareSlot1">
+          <div class="compare-placeholder">
+            <span>➕</span>
+            <p>Selecione um Pokémon</p>
+            <button class="pick-btn" data-slot="1">Escolher</button>
+          </div>
+        </div>
+        <div class="vs-badge">VS</div>
+        <div class="compare-slot" id="compareSlot2">
+          <div class="compare-placeholder">
+            <span>➕</span>
+            <p>Selecione um Pokémon</p>
+            <button class="pick-btn" data-slot="2">Escolher</button>
+          </div>
+        </div>
+      </div>
+      <div id="compareStats" class="compare-stats-section" style="display:none"></div>
+    </section>
+
+  </main>
+
+  <!-- ====== MODAL ====== -->
+  <div id="modal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close" id="modalClose">✕</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- ====== PICK MODAL ====== -->
+  <div id="pickModal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-card pick-modal-card">
+      <button class="modal-close" id="pickModalClose">✕</button>
+      <h2 class="pick-modal-title">Escolha um Pokémon</h2>
+      <input type="text" id="pickSearch" placeholder="Buscar..." class="pick-search" />
+      <ol id="pickList" class="pick-list"></ol>
+    </div>
+  </div>
+
+  <!-- ====== TOAST ====== -->
+  <div id="toast" class="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

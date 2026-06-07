@@ -1,0 +1,9 @@
+<div class="menu-title">
+  <div class="menu-title-esquerda">
+    <h2 class="menu-title-titulo">{{ titulo }}</h2>
+    <p class="menu-title-subtitulo" *ngIf="subtitulo">{{ subtitulo }}</p>
+  </div>
+  <a *ngIf="linkTexto && linkUrl" [routerLink]="linkUrl" class="menu-title-link">
+    {{ linkTexto }} →
+  </a>
+</div>

@@ -1,0 +1,22 @@
+<article class="small-card" *ngIf="post">
+  <a [routerLink]="['/post', post.slug]" class="small-card-link">
+    <div class="small-card-imagem-wrapper">
+      <img [src]="post.imagem" [alt]="post.imagemAlt" class="small-card-imagem" loading="lazy">
+    </div>
+
+    <div class="small-card-conteudo">
+      <div class="small-card-meta">
+        <span class="small-card-categoria">{{ post.categoria }}</span>
+        <span class="small-card-tempo">{{ post.tempoLeitura }} min</span>
+      </div>
+
+      <h3 class="small-card-titulo">{{ post.titulo }}</h3>
+      <p class="small-card-subtitulo">{{ post.subtitulo }}</p>
+
+      <div class="small-card-rodape">
+        <span class="autor-nome">{{ post.autor }}</span>
+        <span class="autor-data">{{ formatarData(post.dataPublicacao) }}</span>
+      </div>
+    </div>
+  </a>
+</article>

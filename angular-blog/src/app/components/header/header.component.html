@@ -1,0 +1,42 @@
+<header class="header">
+  <div class="header-topo">
+    <div class="container header-topo-inner">
+      <span class="header-data">{{ dataAtual | date:'EEEE, d \'de\' MMMM \'de\' yyyy' : '' : 'pt-BR' }}</span>
+      <nav class="header-nav-secundaria">
+        <a href="#" class="nav-link-sec">Sobre</a>
+        <a href="#" class="nav-link-sec">Contato</a>
+        <a href="#" class="nav-link-sec">Newsletter</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="container header-principal">
+    <div class="header-marca">
+      <a routerLink="/" class="logo-link">
+        <span class="logo-prefixo">Perspectiva</span>
+        <span class="logo-sufixo">BR</span>
+      </a>
+      <p class="logo-slogan">Ideias que fazem pensar</p>
+    </div>
+
+    <button class="menu-btn" (click)="toggleMenu()" [class.ativo]="menuAberto" aria-label="Abrir menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <nav class="header-nav-principal" [class.aberto]="menuAberto">
+    <div class="container">
+      <ul class="nav-lista">
+        <li><a routerLink="/" routerLinkActive="ativo" [routerLinkActiveOptions]="{exact: true}" class="nav-link" (click)="fecharMenu()">Início</a></li>
+        <li><a routerLink="/categoria/tecnologia" routerLinkActive="ativo" class="nav-link" (click)="fecharMenu()">Tecnologia</a></li>
+        <li><a routerLink="/categoria/meio-ambiente" routerLinkActive="ativo" class="nav-link" (click)="fecharMenu()">Meio Ambiente</a></li>
+        <li><a routerLink="/categoria/cultura" routerLinkActive="ativo" class="nav-link" (click)="fecharMenu()">Cultura</a></li>
+        <li><a routerLink="/categoria/educacao" routerLinkActive="ativo" class="nav-link" (click)="fecharMenu()">Educação</a></li>
+        <li><a routerLink="/categoria/filosofia" routerLinkActive="ativo" class="nav-link" (click)="fecharMenu()">Filosofia</a></li>
+        <li><a routerLink="/categoria/urbanismo" routerLinkActive="ativo" class="nav-link" (click)="fecharMenu()">Urbanismo</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>

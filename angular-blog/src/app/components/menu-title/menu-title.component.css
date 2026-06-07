@@ -1,0 +1,45 @@
+.menu-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--cor-texto);
+  margin-bottom: 32px;
+}
+
+.menu-title-esquerda {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menu-title-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(20px, 3vw, 26px);
+  font-weight: 900;
+  color: var(--cor-texto);
+  letter-spacing: -0.02em;
+  font-style: italic;
+}
+
+.menu-title-subtitulo {
+  font-family: var(--fonte-ui);
+  font-size: 12px;
+  color: var(--cor-texto-suave);
+  letter-spacing: 0.03em;
+}
+
+.menu-title-link {
+  font-family: var(--fonte-ui);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--cor-destaque);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: var(--transicao);
+  white-space: nowrap;
+}
+
+.menu-title-link:hover {
+  letter-spacing: 0.1em;
+}

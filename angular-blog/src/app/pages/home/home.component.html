@@ -1,0 +1,62 @@
+<main class="home">
+
+  <!-- Hero / Posts em Destaque -->
+  <section class="secao-destaque">
+    <div class="container">
+      <div class="destaque-grid" *ngIf="postsDestaque.length > 0">
+        <div class="destaque-principal" *ngIf="postsDestaque[0]">
+          <app-big-card [post]="postsDestaque[0]"></app-big-card>
+        </div>
+        <div class="destaque-secundario" *ngIf="postsDestaque[1]">
+          <app-big-card [post]="postsDestaque[1]"></app-big-card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Faixa de destaque editorial -->
+  <div class="faixa-editorial">
+    <div class="container faixa-inner">
+      <span class="faixa-texto">✦ Análise · Ensaio · Reportagem · Perspectiva</span>
+    </div>
+  </div>
+
+  <!-- Todos os posts -->
+  <section class="secao-posts">
+    <div class="container">
+      <app-menu-title
+        titulo="Últimas Publicações"
+        subtitulo="Artigos recentes do nosso time editorial"
+        linkTexto="Ver todos"
+        linkUrl="/">
+      </app-menu-title>
+
+      <div class="posts-grid">
+        <app-small-card
+          *ngFor="let post of postsSecundarios; let i = index"
+          [post]="post"
+          [style.animation-delay]="(i * 0.1) + 's'"
+          class="post-animado">
+        </app-small-card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Banner Newsletter -->
+  <section class="secao-newsletter">
+    <div class="container">
+      <div class="newsletter-box">
+        <div class="newsletter-texto">
+          <span class="newsletter-tag">Newsletter</span>
+          <h2 class="newsletter-titulo">Ideias que chegam na sua caixa de entrada</h2>
+          <p class="newsletter-descricao">Toda semana, os melhores artigos do PerspectivaBR direto para você. Sem spam, só conteúdo de qualidade.</p>
+        </div>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Seu melhor e-mail" class="newsletter-input">
+          <button class="newsletter-btn">Quero receber</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>

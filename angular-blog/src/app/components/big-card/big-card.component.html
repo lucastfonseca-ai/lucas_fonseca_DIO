@@ -1,0 +1,30 @@
+<article class="big-card" *ngIf="post">
+  <a [routerLink]="['/post', post.slug]" class="big-card-link">
+    <div class="big-card-imagem-wrapper">
+      <img [src]="post.imagem" [alt]="post.imagemAlt" class="big-card-imagem" loading="lazy">
+      <div class="big-card-overlay"></div>
+      <div class="big-card-badge">
+        <span class="tag">✦ Destaque</span>
+      </div>
+    </div>
+
+    <div class="big-card-conteudo">
+      <div class="big-card-meta">
+        <span class="big-card-categoria">{{ post.categoria }}</span>
+        <span class="big-card-separador">·</span>
+        <span class="big-card-tempo">{{ post.tempoLeitura }} min de leitura</span>
+      </div>
+
+      <h2 class="big-card-titulo">{{ post.titulo }}</h2>
+      <p class="big-card-subtitulo">{{ post.subtitulo }}</p>
+
+      <div class="big-card-rodape">
+        <div class="big-card-autor">
+          <span class="autor-nome">{{ post.autor }}</span>
+          <span class="autor-data">{{ formatarData(post.dataPublicacao) }}</span>
+        </div>
+        <span class="big-card-ler">Ler artigo →</span>
+      </div>
+    </div>
+  </a>
+</article>

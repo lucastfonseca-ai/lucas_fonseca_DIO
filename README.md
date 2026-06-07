@@ -7,3 +7,4 @@ Projetos do Curso de Programação Front-End - DIO
 | Projeto | Descrição | Link |
 | :--- | :--- | :---: |
 | **Construindo uma Pokédex com JavaScript** | Site de Pokédex completo e visualmente impressionante, com HTML, CSS e JavaScript. | [Ver Projeto](./Pokedex/) |
+| **Blog com Angular** | Criando um blog com Angular. | [Ver Projeto](./angular-blog/) |
